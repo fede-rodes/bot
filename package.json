@@ -1,0 +1,15 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "Node server for FB chatbot",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "test"
+  },
+  "author": "Federico Rodes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
