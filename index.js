@@ -8,7 +8,7 @@ console.log(
   '\nNODE_ENV', NODE_ENV,
   '\nPORT', PORT,
   '\nMONGO_URL', MONGO_URL,
-)
+);
 
 // Init node server
 const server = express();
