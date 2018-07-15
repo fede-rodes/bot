@@ -12,18 +12,18 @@ const clearAll = async () => {
 const fixtures = () => {
   casual.seed(11);
 
-  times(10, () => (
-    new Author({
+  times(10, async () => {
+    const author = await new Author({
       firstName: casual.first_name,
       lastName: casual.last_name,
-    }).save().then(author => (
-      new Post({
-        authorId: author._id, // eslint-disable-line
-        title: `A post by ${author.firstName}`,
-        text: casual.sentences(3),
-      }).save()
-    ))
-  ));
+    }).save();
+
+    await new Post({
+      authorId: author._id, // eslint-disable-line
+      title: `A post by ${author.firstName}`,
+      text: casual.sentences(3),
+    }).save();
+  });
 };
 
 const initDB = async () => {

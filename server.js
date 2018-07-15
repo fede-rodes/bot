@@ -31,7 +31,7 @@ initDB();
 
 // Routes
 server.get('/', (req, res) => {
-  res.send('Hello');
+  res.send('Hi, I\'m a 🤖');
   res.end();
 });
 
