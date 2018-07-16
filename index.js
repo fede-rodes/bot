@@ -12,30 +12,30 @@ console.log(
   '\nMONGO_URL', MONGO_URL,
 );
 
-// Init node server
-const server = express();
+// Init node app
+const app = express();
 
 // Middlewares
-server.use(express.json());
+app.use(express.json());
 
 // Connect DB
 mongoose.connect(MONGO_URL);
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', console.log.bind(console, `Database connected to ${MONGO_URL}`));
 
 // Populate DB
 initDB();
 
 // Routes
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hi, I\'m a 🤖');
   res.end();
 });
 
 // Listen
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT} ...`);
 });

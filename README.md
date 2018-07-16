@@ -74,3 +74,11 @@ heroku config:set MONGO_URL=mongodb://<dbuser>:<dbpassword>@<something>.mlab.com
 ```
 >> git push heroku master
 ```
+
+## Ngrok for development purposes
+1. Install ngrok from [https://dashboard.ngrok.com/get-started](https://dashboard.ngrok.com/get-started)
+
+2. Open a new terminal, move to where you executable ngrok file is located and start a tunnel.
+```
+>> ./ngrok http 80
+```

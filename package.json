@@ -2,14 +2,13 @@
   "name": "bot",
   "version": "1.0.0",
   "description": "Node server for FB chatbot",
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": "8.9.4",
     "npm": "5.6.x"
   },
   "scripts": {
-    "start": "nodemon -r dotenv/config server.js",
-    "start:prod": "node server.js"
+    "start": "nodemon -r dotenv/config index.js"
   },
   "author": "Federico Rodes",
   "license": "ISC",
