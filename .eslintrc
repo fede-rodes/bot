@@ -9,7 +9,9 @@
           "_id",
           "__parseValue",
           "__serialize",
-          "__parseLiteral"
+          "__parseLiteral",
+          "_verify",
+          "_handleMessage"
         ]
       }
     ]

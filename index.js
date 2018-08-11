@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect DB
-mongoose.connect(MONGO_URL);
+mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;

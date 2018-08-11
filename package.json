@@ -20,6 +20,7 @@
     "helmet": "^3.13.0",
     "joi": "^13.5.2",
     "lodash": "^4.17.10",
+    "messenger-bot": "^2.5.0",
     "mongoose": "^5.2.3",
     "request": "^2.87.0"
   },
