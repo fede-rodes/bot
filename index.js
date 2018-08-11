@@ -1,5 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
+
+// Routes
+const home = require('./src/routes/home');
+const webhooks = require('./src/routes/webhooks');
+
 const initDB = require('./src/init-db');
 
 // Get env variables
@@ -16,6 +22,8 @@ console.log(
 const app = express();
 
 // Middlewares
+app.use(helmet());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect DB
@@ -30,10 +38,8 @@ db.once('open', console.log.bind(console, `Database connected to ${MONGO_URL}`))
 initDB();
 
 // Routes
-app.get('/', (req, res) => {
-  res.send('Hi, I\'m a 🤖');
-  res.end();
-});
+app.use('/', home);
+app.use('/webhook', webhooks);
 
 // Listen
 app.listen(PORT, () => {

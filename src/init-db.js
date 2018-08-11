@@ -8,21 +8,25 @@ const clearAll = async () => {
   await Post.remove({});
 };
 
-// Populate DB.
+// Populate DB
 const fixtures = () => {
   casual.seed(11);
 
   times(10, async () => {
-    const author = await new Author({
+    const author = new Author({
       firstName: casual.first_name,
       lastName: casual.last_name,
-    }).save();
+    });
 
-    await new Post({
-      authorId: author._id, // eslint-disable-line
+    await author.save();
+
+    const post = new Post({
+      authorId: author._id,
       title: `A post by ${author.firstName}`,
       text: casual.sentences(3),
-    }).save();
+    });
+
+    await post.save();
   });
 };
 

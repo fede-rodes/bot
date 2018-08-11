@@ -27,6 +27,11 @@ Once we have our Mongo provider, these are the next steps that we need to follow
 ```
 The app should be running and listening on port 3000 --> http://localhost:3000
 
+Finally, setup webhook tunnel
+```
+>> npm run set-tunnel
+```
+
 ## Running the app locally in production mode
 1. Follow the steps above to setup your Mongo service.
 
@@ -46,6 +51,8 @@ The app should be running and listening on port 3000 --> http://localhost:3000
 >> heroku local
 ```
 This should launch the app on port 5000 --> http://localhost:5000. As far as I understand, the port is setup by heroku and can't be changed.
+
+// TODO: set tunnel
 
 ## Deploy to heroku
 1. Follow the steps above to setup a Mongo service on mLab.
@@ -80,5 +87,43 @@ heroku config:set MONGO_URL=mongodb://<dbuser>:<dbpassword>@<something>.mlab.com
 
 2. Open a new terminal, move to where you executable ngrok file is located and start a tunnel.
 ```
->> ./ngrok http 80
+>> ./ngrok http 3000 (3000 refers to the port where the app is listening)
 ```
+## LocalTunnel
+Alternatively to Ngrok, you can use localTunnel
+```
+>> npm install -g localtunnel
+>> lt --port 3000 --subdomain <domainpick>
+```
+It should return this.
+```
+>> your url is: https://<domainpick>.localtunnel.me
+```
+
+## Facebook documentation
+- [https://messenger.fb.com/developers/resources/sample-bots](https://messenger.fb.com/developers/resources/sample-bots)
+-  [https://github.com/fbsamples/messenger-bot-samples/blob/master/gui-webview/routes/webhooks.js](// See: https://github.com/fbsamples/messenger-bot-samples/blob/master/gui-webview/routes/webhooks.js)
+
+## Tutorials
+- https://medium.com/crowdbotics/how-to-create-your-very-own-facebook-messenger-bot-with-dialogflow-and-node-js-in-just-one-day-f5f2f5792be5
+
+- https://girliemac.com/blog/2017/01/06/facebook-apiai-bot-nodejs/
+
+- https://cosmicjs.com/blog/how-to-build-a-facebook-bot-app-using-nodejs
+
+- https://blog.messengerdevelopers.com/using-the-webview-to-create-richer-bot-to-user-interactions-ed8a789523c6
+
+- https://medium.com/mindlayer/for-beginners-a-facebook-bot-tutorial-3bb2063091c7
+
+- https://github.com/jw84/messenger-bot-tutorial
+
+- https://quantizd.com/building-facebook-messenger-bot-with-nodejs/
+
+## SDKs
+- https://github.com/remixz/messenger-bot
+
+- https://github.com/Charca/bootbot
+
+- https://github.com/bluejamesbond/FacebookMessengerBot.js
+
+- https://github.com/rickydunlop/fbmessenger-node
