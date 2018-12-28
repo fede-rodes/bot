@@ -1,5 +1,7 @@
 # Node.js server for FB messenger chatbot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fede-rodes/bot.svg)](https://greenkeeper.io/)
+
 ## Setup MongoDB provider
 Before doing anything, we need to setup a Mongo provider to hold our database for us. I'll describe two ways of doing this; choose the one you like the most.
 
